@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @author Tomasz Kasprzycki
  */
-public class BankingAccountInMemoryRepository implements BankingAccountRepository {
+class BankingAccountInMemoryRepository implements BankingAccountRepository {
 
     private final Map<String, BankingAccount> bankingAccountsMap = new ConcurrentHashMap<>();
 
