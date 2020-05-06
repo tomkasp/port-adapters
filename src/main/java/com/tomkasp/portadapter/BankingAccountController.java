@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BankingAccountController {
 
     private final BankingAccountService bankingAccountService;
-`
+
     public BankingAccountController(BankingAccountService bankingAccountService) {
         this.bankingAccountService = bankingAccountService;
     }
@@ -22,7 +22,8 @@ public class BankingAccountController {
         bankingAccountService.createBankingAccount(
                 bankingAccountDto.getAccountNumber(),
                 bankingAccountDto.getCurrencyCode(),
-                bankingAccountDto.getUserID());
+                bankingAccountDto.getUserID()
+        );
     }
 
     @DeleteMapping(path = "{accountNumber}")
