@@ -2,9 +2,12 @@ package com.tomkasp.portadapter;
 
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
+ * This is primary port. It is used by primary adapters. This is entry (API) of our business logic.
+ *
  * @author Tomasz Kasprzycki
  */
 @Service
@@ -28,7 +31,12 @@ public class BankingAccountService {
         bankingAccountRepository.delete(accountNumber);
     }
 
-    public Collection<BankingAccount> getBankingAccounts() {
-        return bankingAccountRepository.getAll();
+    public List<BankingAccountDto> getBankingAccounts() {
+        return bankingAccountRepository.getAll().stream()
+                .map(bankingAccount -> new BankingAccountDto(
+                        bankingAccount.getUserIdentifier(),
+                        bankingAccount.getCurrencyCode(),
+                        bankingAccount.getAccountNumber()))
+                .collect(Collectors.toList());
     }
 }

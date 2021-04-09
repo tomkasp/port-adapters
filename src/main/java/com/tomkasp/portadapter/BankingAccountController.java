@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
+import java.util.List;
 
+/**
+ * This is primary Adapter. It injects primary port - {@link BankingAccountService}
+ */
 @RestController
 @RequestMapping("/bankingaccounts")
 class BankingAccountController {
@@ -21,7 +25,7 @@ class BankingAccountController {
     }
 
     @GetMapping
-    public Collection<BankingAccount> getBankingAccounts() {
+    public List<BankingAccountDto> getBankingAccounts() {
         return bankingAccountService.getBankingAccounts();
     }
 

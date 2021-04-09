@@ -6,6 +6,12 @@ public class BankingAccountDto {
     private String currencyCode;
     private String accountNumber;
 
+    public BankingAccountDto(String userId, String currencyCode, String accountNumber) {
+        this.userId = userId;
+        this.currencyCode = currencyCode;
+        this.accountNumber = accountNumber;
+    }
+
     public String getUserID() {
         return userId;
     }
